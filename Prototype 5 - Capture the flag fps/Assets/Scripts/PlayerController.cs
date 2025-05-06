@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float rotX; //current x roation of the camera
     private Camera cam;
     private Rigidbody rig;
+    [Header("Weapon")]
+    private ProjectileWeapon weapon;
 
 
     void Awake()
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         //Get the components
         cam = Camera.main;
         rig = GetComponent<Rigidbody>();
+        weapon = GetComponent<ProjectileWeapon>(); //Get Weapon Script Component
 
         Cursor.lockState = CursorLockMode.Locked;   
     }
@@ -38,6 +41,12 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButtonDown("Jump"))
             TryJump();
+        
+        if(Input.GetButton("Fire1"))
+        {
+            if(weapon.CanShoot()) //If CanShoot is true
+                weapon.Shoot(); //Fire the weapon
+        }
     }
 
     void Move(){
