@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         //Weapon = GetComponent<Weapon>();
         target = FindObjectOfType<PlayerController>().gameObject;
 
-        InvokeRepeating("updatePath", 0.0f, 0.5f);
+        InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
 
     void UpdatePath(){
@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
         if(path.Count == 0)
             return;
         
+
         //Move towards the closest path
         transform.position = Vector3.MoveTowards(transform.position, path[0] + new Vector3(0, yPathOffset, 0), moveSpeed * Time.deltaTime);
 
