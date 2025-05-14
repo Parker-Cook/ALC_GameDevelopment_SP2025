@@ -3082,6 +3082,7 @@ GameObject:
   - component: {fileID: 451712461}
   - component: {fileID: 451712460}
   - component: {fileID: 451712462}
+  - component: {fileID: 451712464}
   m_Layer: 0
   m_Name: Enemy_AI
   m_TagString: Untagged
@@ -3152,10 +3153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHP: 1
-  maxHP: 10
+  maxHP: 1
   scoreToGive: 100
   moveSpeed: 15
-  attackRange: 3
+  attackRange: 10
   yPathOffset: 1
 --- !u!4 &451712463
 Transform:
@@ -3171,8 +3172,28 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1480471229}
+  - {fileID: 780183523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451712464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451712459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf4ab2668125684bbc82d991a432829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 3066985572325674004, guid: b4d1aea366f56b74f8feb76d459965ac, type: 3}
+  firePoint: {fileID: 780183523}
+  projectileSpeed: 100
+  shootRate: 0.5
+  curAmmo: 0
+  maxAmmo: 100
+  infiniteAmmo: 0
 --- !u!43 &458771765
 Mesh:
   m_ObjectHideFlags: 0
@@ -5355,7 +5376,7 @@ MonoBehaviour:
   projectile: {fileID: 3066985572325674004, guid: b4d1aea366f56b74f8feb76d459965ac, type: 3}
   firePoint: {fileID: 715811293}
   projectileSpeed: 100
-  shootRate: 1
+  shootRate: 0.5
   curAmmo: 0
   maxAmmo: 100
   infiniteAmmo: 0
@@ -6130,6 +6151,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16.029581, y: 4.652496, z: 5.204241}
   m_Center: {x: 8.014783, y: 2.326248, z: 2.6021223}
+--- !u!1 &780183522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780183523}
+  m_Layer: 0
+  m_Name: Fire_Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &780183523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780183522}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.072999954, y: 0.33499992, z: 0.52599907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 451712463}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &847361959
 GameObject:
   m_ObjectHideFlags: 0
